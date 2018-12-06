@@ -1,0 +1,2 @@
+192.168.10.102 - - [06/Dec/2018:15:55:01 +0800] "GET / HTTP/1.1" 200 80179 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36" "-"
+192.168.10.102 - - [06/Dec/2018:15:55:02 +0800] "GET /favicon.ico HTTP/1.1" 200 80225 "http://192.168.10.126/" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36" "-"
