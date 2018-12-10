@@ -6,7 +6,10 @@ try {
 } catch (Exception $e) {
     echo '<p>mysql连接失败 : '.$e->getMessage().'</p>';
 } finally {
-
+//检测rabbitmq
+if(!extension_loaded('bcmath')){
+     echo '<p>bcmath 扩展未安装,连接rabbitmq必须 </p>';
+}
     try {
         $redis = new Redis();
         $res = $redis->connect('myredis', 6379);//地址直接使用link指定的标签myredis
