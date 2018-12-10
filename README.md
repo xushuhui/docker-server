@@ -12,10 +12,11 @@ docker rmi $(docker images -q) 删除所有镜像
 docker inspect myphp 查看容器配置信息
 end
 
+主库执行sql
 show master status
 GRANT REPLICATION SLAVE ON *.* to 'backup'@'%' identified by 'backup';
 show grants for 'backup'@'%';
-
+从库执行sql
 CHANGE MASTER TO 
 MASTER_HOST='192.168.10.126',
 MASTER_PORT=3306,
