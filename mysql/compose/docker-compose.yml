@@ -1,0 +1,40 @@
+version: "2"
+services:
+  dbmaster:
+    build: ./mysql
+    container_name: "dbmaster"
+    privileged: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/mysql/dbmaster/data:/var/lib/mysql
+      - /home/mysql/dbmaster/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+  dbslave1:
+    build: ./mysql
+    container_name: "dbslave1"
+    privileged: true
+    ports:
+      - "3307:3306"
+    volumes:
+      - /home/mysql/dbslave1/data:/var/lib/mysql
+      - /home/mysql/dbslave1/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    depends_on:
+      - dbmaster     
+  dbslave2:
+    build: ./mysql
+    container_name: "dbslave2"
+    privileged: true
+    ports:
+      - "3308:3306"
+    volumes:
+      - /home/mysql/dbslave2/data:/var/lib/mysql
+      - /home/mysql/dbslave2/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    depends_on:
+      - dbmaster
+  
