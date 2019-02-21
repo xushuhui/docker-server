@@ -15,6 +15,6 @@ RUN apt-get update && apt-get install -y \
        && docker-php-ext-install bcmath \
        && docker-php-ext-install mysqli 
 
-RUN pecl install redis && docker-php-ext-enable redis 
+RUN pecl install redis && docker-php-ext-enable redis &&  pecl install swoole &&  docker-php-ext-enable swoole
 RUN echo "" >> /usr/local/etc/php/php.ini
 RUN usermod -u 1000 www-data

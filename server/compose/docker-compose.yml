@@ -36,9 +36,10 @@ services:
     privileged: true
     ports:
       - "80:80"
+      - "443:443"
     links:
       - "myphp"
     volumes:
       - ../www:/usr/share/nginx/html
       - ../nginx:/etc/nginx
-      - ../logs/nginx.logs:/var/log/nginx
+      - ../logs/nginx:/var/log/nginx
