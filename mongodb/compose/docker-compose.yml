@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    container_name: "mongodb"
+    privileged: true
+    ports:
+      - "27917:27917"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ../mongodata:/data/db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
