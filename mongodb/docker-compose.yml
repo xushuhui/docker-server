@@ -5,9 +5,7 @@ services:
     container_name: "mongodb"
     privileged: true
     ports:
-      - "27917:27917"
+      - "27017:27017"
     volumes:
       - /etc/localtime:/etc/localtime
-      - ../mongodata:/data/db
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      - ./mongodata:/data/db
