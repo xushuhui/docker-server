@@ -18,7 +18,8 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ../redis:/data
+      - ../redis/data:/data
+      - ../redis/redis.conf:/etc/redis/redis.conf
   myphp:
     build: ./php
     container_name: "myphp"
