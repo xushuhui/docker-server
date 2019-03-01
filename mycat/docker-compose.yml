@@ -1,0 +1,22 @@
+version: "2"
+services:
+  dbmaster:
+    build: ./mysql
+    container_name: "dbmaster"
+    privileged: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/mysql/dbmaster/data:/var/lib/mysql
+      - /home/mysql/dbmaster/cnf:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+  mycat:
+    privileged: true
+    ports:
+      - "8066:8066" 
+      - "9066:9066" 
+    volumes:
+      - ./logs:/usr/local/mycat/logs
+      - ./conf:/usr/local/mycat/conf
+ 
