@@ -1,0 +1,32 @@
+version: "2"
+services:
+  ng1:
+    build: ./nginx
+    container_name: "ng1"
+    privileged: true
+    ports:
+      - "81:80"
+    volumes:
+      - ./www1:/usr/share/nginx/html
+      - ./ng1/conf.d:/etc/nginx/conf.d
+      - ./logs/ng1:/var/log/nginx
+  ng2:
+    build: ./nginx
+    container_name: "ng2"
+    privileged: true
+    ports:
+      - "82:80"
+    volumes:
+      - ./www2:/usr/share/nginx/html
+      - ./ng2/conf.d:/etc/nginx/conf.d
+      - ./logs/ng2:/var/log/nginx  
+  ng3:
+    build: ./nginx
+    container_name: "ng3"
+    privileged: true
+    ports:
+      - "83:80"
+    volumes:
+      - ./www3:/usr/share/nginx/html
+      - ./ng3/conf.d:/etc/nginx/conf.d
+      - ./logs/ng3:/var/log/nginx  
