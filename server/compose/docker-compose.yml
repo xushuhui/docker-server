@@ -17,7 +17,8 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ../redis:/data
+      - ../redis/data:/data
+      - ../redis/redis.conf:/etc/redis/redis.conf
   myphp:
     build: ./php
     container_name: "myphp"
@@ -27,6 +28,7 @@ services:
     volumes:
       - ../www:/var/www/html
       - ../php/php.ini:/usr/local/etc/php/php.ini
+      - /etc/localtime:/etc/localtime:ro
     links:
       - "mydb"
       - "myredis"
@@ -36,9 +38,10 @@ services:
     privileged: true
     ports:
       - "80:80"
+      - "443:443"
     links:
       - "myphp"
     volumes:
       - ../www:/usr/share/nginx/html
       - ../nginx:/etc/nginx
-      - ../logs/nginx.logs:/var/log/nginx
+      - ../logs/nginx:/var/log/nginx
