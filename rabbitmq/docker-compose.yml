@@ -1,0 +1,16 @@
+version: "1"
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: "rabbitmq-node1"
+    privileged: true
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - /home/rabbitmq:/var/lib/rabbitmq
+
+
+# 浏览器访问localhost:15672,默认用户名 guest,密码guest
+
+ 
